@@ -40,10 +40,12 @@ namespace ChatMessRyb.Windows
                 ChatMessage chat = new ChatMessage();
                 var chatRoom = ((Employee)AuthWindow.employee).Id_Employee;
                 List<ChatMessage> chatMessages = DB.ChatMessage.Where(x => x.Id_Chatroom == chatRoom).ToList();
+
                 chat.Id_Employee = message.Id_Employee;
                 chat.Id_Chatroom = message.Id_Chatroom;
                 chat.Date = DateTime.Now;
                 chat.Message = TBText.Text;
+
                 DB.ChatMessage.Add(chat);
                 DB.SaveChanges();
 
