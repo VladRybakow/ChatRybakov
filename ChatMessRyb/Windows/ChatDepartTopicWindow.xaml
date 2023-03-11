@@ -1,0 +1,51 @@
+﻿<Window x:Class="ChatMessRyb.Windows.ChatDepartTopicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatMessRyb.Windows"
+        mc:Ignorable="d"
+        Title="ChatDepartTopicWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Hello" FontSize="16"/>
+
+        <TextBox FontWeight="Bold" Name="TBName" BorderThickness="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16"/>
+
+        <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Your open chatrooms" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
+        <ListView x:Name="TopicLst" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Height="Auto" Width="Auto">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="377" >
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <Label  Height="80" Width="185" Margin="15" x:Name="Namelbl" Content="{Binding Chatroom.Topic}"/>
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <Label  Height="80" Width="152" Margin="15" x:Name="DateLbl" Content="{Binding Date}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </Grid>
+</Window>
