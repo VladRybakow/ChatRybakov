@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatMessRyb.Windows"
         mc:Ignorable="d"
-        Title="ChatWindow" Height="450" Width="800">
+        Title="ChatWindow" Height="450" Width="500">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.ColumnSpan="2" Content="Topic: " VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+
+        <TextBox x:Name="TBName" Grid.Column="2" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" BorderThickness="0"/>
+
+        <ListView x:Name="MemberLst" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3" Margin="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border  BorderThickness="1" Height="Auto" Width="111">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="95">
+                            <StackPanel VerticalAlignment="Center" Height="41" >
+                                <Label  Height="25" Width="67" Margin="15" x:Name="Namelbl" Content="{Binding Employee.Name}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView x:Name="ChatLst" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="7" BorderBrush="Black" BorderThickness="3" Margin="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border  BorderThickness="1" Height="Auto" Width="Auto">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="400" Height="50" >
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <Label  Height="45" Width="60" Margin="5" x:Name="DateLbl" Content="{Binding Date}"/>
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <Label  Height="45" Width="50" Margin="5" x:Name="Namelbl" Content="{Binding Employee.Name}"/>
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Label  Height="45" Width="Auto" Margin="5" x:Name="Messagelbl" Content="{Binding Message}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Row="5" Grid.ColumnSpan="3" Margin="2" BorderBrush="Black" BorderThickness="3" Background="White" Content="Add User" FontSize="16"/>
+
+        <Button Grid.Row="6" Grid.ColumnSpan="3" Margin="2" BorderBrush="Black" BorderThickness="3" Background="White" Content="Change Topic" FontSize="16"/>
+
+        <Button Grid.Row="7" Grid.ColumnSpan="3" Margin="2" BorderBrush="Black" BorderThickness="3" Background="White" Content="Leave Chatroom" FontSize="16"/>
+
+        <TextBox TextWrapping="Wrap" x:Name="TBText" Grid.Row="8" Grid.ColumnSpan="8" Grid.RowSpan="2" Margin="2" BorderBrush="Black" BorderThickness="3"/>
+
+        <Button Click="SendBtnClick" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="2" Content="Send" FontSize="16" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" Background="Aqua"/>
+
     </Grid>
 </Window>

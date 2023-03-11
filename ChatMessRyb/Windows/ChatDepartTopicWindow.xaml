@@ -29,7 +29,7 @@
 
         <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Your open chatrooms" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-        <ListView x:Name="TopicLst" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" >
+        <ListView x:Name="ChatLst" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" MouseDoubleClick="ChatOpenDClick" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1" Height="Auto" Width="Auto">
@@ -46,6 +46,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
+        <Button Name="EmpFinBTN" Click="EmpBtnClick"  FontWeight="Bold" Grid.Column="1" Grid.Row="4" Content="Empoyee Finder" FontSize="16" BorderBrush="Black" BorderThickness="3" Margin="-30,20,-30,20"/>
+
+        <Button Name="CloseAppBTN" Click="CloseBtnClick" FontWeight="Bold" Grid.Column="3" Grid.Row="4" Content="Close Application" FontSize="16" BorderBrush="Black" BorderThickness="3" Margin="-30,20,-30,20"/>
 
     </Grid>
 </Window>

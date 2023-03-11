@@ -24,7 +24,27 @@ namespace ChatMessRyb.Windows
 
             TBName.Text = AuthWindow.employee.Name;
             var chatRoom = ((Employee)AuthWindow.employee).Id_Employee;
-            TopicLst.ItemsSource = DB.ChatMessage.Where(x => x.Id_Employee == chatRoom).ToList();
+            ChatLst.ItemsSource = DB.ChatMessage.Where(x => x.Id_Employee == chatRoom).ToList();
+        }
+
+        private void EmpBtnClick(object sender, RoutedEventArgs e)
+        {
+            SearchForColleaguesWindow sfcw = new SearchForColleaguesWindow();
+            sfcw.Show();
+            this.Close();
+        }
+
+        private void CloseBtnClick(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void ChatOpenDClick(object sender, MouseButtonEventArgs e)
+        {
+            var top = ChatLst.SelectedItem as ChatMessage;
+            ChatWindow topic = new ChatWindow(top);
+            topic.Show();
+            this.Close();
         }
     }
 }
